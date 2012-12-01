@@ -15,34 +15,34 @@ command!                RCReset  call rainbowcyclone#reset()
 command!                RCList   call rainbowcyclone#list()
 command! -nargs=*       RCConcat call rainbowcyclone#concatenate(<q-args>)
 "}}}
-" key mappings "{{{
-nnoremap <Plug>(rainbow_cyclone_search_forward)
+" keymappings "{{{
+nnoremap <Plug>(rc_search_forward)
             \ :<C-u>RC/
-nnoremap <Plug>(rainbow_cyclone_search_backward)
+nnoremap <Plug>(rc_search_backward)
             \ :<C-u>RC?
-nnoremap <Plug>(rainbow_cyclone_search_forward_with_cursor)
+nnoremap <Plug>(rc_search_forward_with_cursor)
             \ :<C-u>execute 'RC/' . expand('<cword>')<CR>
-nnoremap <Plug>(rainbow_cyclone_search_backward_with_cursor)
+nnoremap <Plug>(rc_search_backward_with_cursor)
             \ :<C-u>execute 'RC?' . expand('<cword>')<CR>
-nnoremap <Plug>(rainbow_cyclone_search_forward_with_cursor_complete)
+nnoremap <Plug>(rc_search_forward_with_cursor_complete)
             \ :<C-u>execute 'RC/' . '\<' . expand('<cword>') . '\>'<CR>
-nnoremap <Plug>(rainbow_cyclone_search_backward_with_cursor_complete)
+nnoremap <Plug>(rc_search_backward_with_cursor_complete)
             \ :<C-u>execute 'RC?' . '\<' . expand('<cword>') . '\>'<CR>
-nnoremap <Plug>(rainbow_cyclone_search_forward_with_last_pattern)
+nnoremap <Plug>(rc_search_forward_with_last_pattern)
             \ :<C-u>execute 'RC/' . @/<CR>
-nnoremap <Plug>(rainbow_cyclone_search_backward_with_last_pattern)
+nnoremap <Plug>(rc_search_backward_with_last_pattern)
             \ :<C-u>execute 'RC?' . @/<CR>
 
-nnoremap <Plug>(rainbow_cyclone_highlight)
+nnoremap <Plug>(rc_highlight)
             \ :<C-u>RC!/
-nnoremap <Plug>(rainbow_cyclone_highlight_with_cursor)
+nnoremap <Plug>(rc_highlight_with_cursor)
             \ :<C-u>execute 'RC!/' . expand('<cword>')<CR>
-nnoremap <Plug>(rainbow_cyclone_highlight_with_cursor_complete)
+nnoremap <Plug>(rc_highlight_with_cursor_complete)
             \ :<C-u>execute 'RC!/' . '\<' . expand('<cword>') . '\>'<CR>
-nnoremap <Plug>(rainbow_cyclone_highlight_with_last_pattern)
+nnoremap <Plug>(rc_highlight_with_last_pattern)
             \ :<C-u>execute 'RC!/' . @/<CR>
 
-nnoremap <Plug>(rainbow_cyclone_reset)
+nnoremap <Plug>(rc_reset)
             \ :<C-u>RainbowCycloneReset<CR>
 "}}}
 
