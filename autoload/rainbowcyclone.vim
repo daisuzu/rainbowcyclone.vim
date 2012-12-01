@@ -32,18 +32,18 @@ endfunction
 
 function! s:create_hi_pattern(word)
     if &smartcase && a:word =~# '[A-Z]'
-        let flag = '\\C'
+        let flag = '\C'
     elseif &ignorecase
-        let flag = '\\c'
+        let flag = '\c'
     else
-        let flag = '\\C'
+        let flag = '\C'
     endif
     return a:word . flag
 endfunction
 
 function! s:jump_to_pattern(direction)
     try
-        execute 'normal ' . a:direction
+        execute 'normal! ' . a:direction
     catch /E384\|E385/
         echohl WarningMsg  | echo 'Not Found!' | echohl None
     endtry
@@ -90,11 +90,8 @@ function! s:rc.search(arg, jump)
     endif
 
     call self.add(params.word)
-    execute 'call matchadd("RainbowCyclone' .
-                \ self.curr_pos .
-                \ '","' . 
-                \ s:create_hi_pattern(params.word) .
-                \ '")'
+    call matchadd('RainbowCyclone' . self.curr_pos,
+                \ s:create_hi_pattern(params.word))
     call self.increment()
 
     if a:jump
@@ -130,7 +127,7 @@ endfunction
 
 function! s:rc.refresh()
     for [idx, pattern] in map(copy(self.patterns), '[v:key, v:val]')
-        execute 'call matchadd("RainbowCyclone' . idx . '","' . pattern . '")'
+        call matchadd('RainbowCyclone' . idx, pattern)
     endfor
 endfunction
 "}}}
