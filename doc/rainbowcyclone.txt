@@ -39,10 +39,11 @@ COMMANDS					     *rainbowcyclone-commands*
 :RCList								   *:RCList*
 		    Show the list of keywords that was used in search.
 
-:RCConcat[{list}]						   *:RCConcat*
+:RCConcat [{expr}]						   *:RCConcat*
 		    Concatenate the keywords that was used in search for ever.
-		    {list} must be a |List| with index number in |:RCList| .
-		    When {list} is not present, same as use all index number.
+		    {expr} must be index number in |:RCList| separated by a
+		    space (e.g. ":RCConcat 0 1 2").
+		    When {expr} is not present, same as use all index number.
 
 ==============================================================================
 KEYMAPPINGS					  *rainbowcyclone-keymappings*
