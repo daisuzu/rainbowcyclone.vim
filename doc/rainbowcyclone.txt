@@ -1,0 +1,145 @@
+*rainbowcyclone.txt*  - Rainbow Cyclone
+
+Author: daisuzu <daisuzu@gmail.com>
+Version: 0.0.1
+License: Same terms as Vim itself (see :help license)
+
+==============================================================================
+CONTENTS					     *rainbowcyclone-contents*
+
+    INTRODUCTION ......... |rainbowcyclone-introduction|
+    COMMANDS ............. |rainbowcyclone-commands|
+    KEYMAPPINGS .......... |rainbowcyclone-keymappings|
+    CONFIGURATION ........ |rainbowcyclone-configuration|
+    MISC ................. |rainbowcyclone-misc|
+    CHANGELOG ............ |rainbowcyclone-changelog|
+
+==============================================================================
+INTRODUCTION					 *rainbowcyclone-introduction*
+
+*rainbowcyclone.vim* is a vim plugin to highlight different color for each
+search.
+
+==============================================================================
+COMMANDS					     *rainbowcyclone-commands*
+
+|rainbowcyclone.vim| defines the following command.
+
+:RC[!]/{pattern}						   *:RC/*
+		    Search forward for the {pattern} and highlight.
+		    Change the highlight color in each time to search.
+
+:RC[!]?{pattern}						   *:RC?*
+		    Search backward for the {pattern} and highlight.
+		    Change the highlight color in each time to search.
+
+:RCReset							   *:RCReset*
+		    Reset highlighting of all search result.
+
+:RCList								   *:RCList*
+		    Show the list of keywords that was used in search.
+
+:RCConcat[{list}]						   *:RCConcat*
+		    Concatenate the keywords that was used in search for ever.
+		    {list} must be a |List| with index number in |:RCList| .
+		    When {list} is not present, same as use all index number.
+
+==============================================================================
+KEYMAPPINGS					  *rainbowcyclone-keymappings*
+
+|rainbowcyclone.vim| defines the following keymappings.
+
+			     *<Plug>(rc_search_forward)*
+<Plug>(rc_search_forward)
+	Search forward like |/| and highlight.
+
+			     *<Plug>(rc_search_backward)*
+<Plug>(rc_search_backward)
+	Search backward like |?| and highlight.
+
+			     *<Plug>(rc_search_forward_with_cursor)*
+<Plug>(rc_search_forward_with_cursor)
+	Search forward like |gstar| and highlight.
+
+			     *<Plug>(rc_search_backward_with_cursor)*
+<Plug>(rc_search_backward_with_cursor)
+	Search backward like |g#| and highlight.
+
+			     *<Plug>(rc_search_forward_with_cursor_complete)*
+<Plug>(rc_search_forward_with_cursor_complete)
+	Search forward like |star| and highlight.
+
+			     *<Plug>(rc_search_backward_with_cursor_complete)*
+<Plug>(rc_search_backward_with_cursor_complete)
+	Search backward like |#| and highlight.
+
+			     *<Plug>(rc_search_forward_with_last_pattern)*
+<Plug>(rc_search_forward_with_last_pattern)
+	Repeat the latest "/" or "?" like |n| and highlight.
+
+			     *<Plug>(rc_search_backward_with_last_pattern)*
+<Plug>(rc_search_backward_with_last_pattern)
+	Repeat the latest "/" or "?" like |N| and highlight.
+
+			     *<Plug>(rc_highlight)*
+<Plug>(rc_highlight)
+	Like |<Plug>(rc_search_forward)|,
+	but only highlight.
+
+			     *<Plug>(rc_highlight_with_cursor)*
+<Plug>(rc_highlight_with_cursor)
+	Like |<Plug>(rc_search_forward_with_cursor)|,
+	but only highlight.
+
+			     *<Plug>(rc_highlight_with_cursor_complete)*
+<Plug>(rc_highlight_with_cursor_complete)
+	Like |<Plug>(rc_search_forward_with_cursor_complete)|,
+	but only highlight.
+
+			     *<Plug>(rc_highlight_with_last_pattern)*
+<Plug>(rc_highlight_with_last_pattern)
+	Like |<Plug>(rc_search_forward_with_last_pattern)|,
+	but only highlight.
+
+			     *<Plug>(rc_reset)*
+<Plug>(rc_reset)
+	Reset highlighting of all search result.
+
+==============================================================================
+CONFIGURATION					*rainbowcyclone-configuration*
+
+You can set the following options in your .vimrc for customize.
+
+------------------------------------------------------------------------------
+g:rainwbow_cyclone_colors			   *g:rainwbow_cyclone_colors*
+
+Set the color cycle for highlighting by |List| of |String| .
+
+Default:
+>
+  let g:rainwbow_cyclone_colors = [
+  \ 'term=reverse ctermfg=1 ctermbg=12 gui=bold guifg=Black guibg=Red',
+  \ 'term=reverse ctermfg=1 ctermbg=6  gui=bold guifg=Black guibg=Orange',
+  \ 'term=reverse ctermfg=1 ctermbg=14 gui=bold guifg=Black guibg=Yellow',
+  \ 'term=reverse ctermfg=1 ctermbg=10 gui=bold guifg=Black guibg=Green',
+  \ 'term=reverse ctermfg=1 ctermbg=9  gui=bold guifg=Black guibg=Blue',
+  \ 'term=reverse ctermfg=1 ctermbg=1  gui=bold guifg=Black guibg=SlateBlue',
+  \ 'term=reverse ctermfg=1 ctermbg=5  gui=bold guifg=Black guibg=Purple'
+  \ ]
+<
+
+==============================================================================
+MISC							 *rainbowcyclone-misc*
+
+Latest version is available at https://github.com/daisuzu/rainbowcyclone.vim
+
+Pull request and comments are welcome if there are bugs, or suggestions.
+Please contact to github page or email.
+
+==============================================================================
+CHANGELOG					    *rainbowcyclone-changelog*
+
+0.0.1:
+- Initial upload
+
+vim:tw=78:fo=tcq2mM:ts=8:ft=help:norl
