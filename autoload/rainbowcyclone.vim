@@ -42,11 +42,12 @@ function! s:create_hi_pattern(word)
 endfunction
 
 function! s:jump_to_pattern(direction)
-    try
-        execute 'normal! ' . a:direction
-    catch /E384\|E385/
-        echohl WarningMsg  | echo 'Not Found!' | echohl None
-    endtry
+    let v:errmsg = ''
+    silent! execute 'normal! ' . a:direction
+
+    if v:errmsg =~# '^E38[45]:'
+        echohl WarningMsg  | echo v:errmsg | echohl None
+    endif
 endfunction
 "}}}
 
