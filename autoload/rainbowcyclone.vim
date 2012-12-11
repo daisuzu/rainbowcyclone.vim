@@ -45,7 +45,7 @@ function! s:jump_to_pattern(direction)
     let v:errmsg = ''
     silent! execute 'normal! ' . a:direction
 
-    if v:errmsg =~# '^E38[45]:'
+    if v:errmsg =~# '^E38[45]:\|^E486:'
         echohl WarningMsg  | echo v:errmsg | echohl None
     endif
 endfunction
