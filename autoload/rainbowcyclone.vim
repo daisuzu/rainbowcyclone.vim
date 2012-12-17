@@ -125,9 +125,9 @@ function! s:rc.reset()
     let curr_winnr = winnr()
     let prev_winnr = winnr('#')
     noautocmd windo call self.clear_highlight()
+    call self.setup()
     execute prev_winnr . "wincmd w"
     execute curr_winnr . "wincmd w"
-    call self.setup()
 endfunction
 
 function! s:rc.refresh()
